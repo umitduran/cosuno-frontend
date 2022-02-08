@@ -6,10 +6,10 @@ import api from '../../api/api';
 export const useGetCompanyList = () => {
   const dispatch = useDispatch();
   return useCallback(
-    () =>
+    value =>
       dispatch({
         type: GET_COMPANY_LIST,
-        payload: api.get(`/companies`),
+        payload: api.get(`/companies?searchParams=${value?.searchParam || ''}`),
       }),
     [dispatch]
   );

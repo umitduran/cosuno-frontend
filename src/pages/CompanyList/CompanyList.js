@@ -6,7 +6,8 @@ import {
   useCompanyList,
   useGetCompanyList,
 } from '../../redux/companyList';
-import './CompanyList.module.css';
+import Search from '../../components/Search/Search';
+import classes from './CompanyList.module.css';
 
 const CompanyList = () => {
   const {isLoading} = useLoadingState();
@@ -16,25 +17,16 @@ const CompanyList = () => {
     getCompanyList();
   }, [getCompanyList]);
 
-  const getDataSource = () => [];
-
-  /*  const onFilter = (value, record) => {
-    const filteredPerson = record.filmConnection.edges.map(
-      edge => edge.node.id === value
-    );
-    return filteredPerson.includes(true);
-  }; */
-
   const columns = [
     {
-      title: 'Company "Name',
+      title: 'Company Name',
       dataIndex: 'name',
       key: 'name',
       // todo render should be function
       render: (name, row) => (
         <Space direction="vertical">
           <Avatar
-            src={`https://avatars.dicebear.com/api/${row.gender}/${name}.svg?mood[]=happy&mood[]=happy`}
+            src={`https://ui-avatars.com/api/?name=${name}`}
             size={{
               xs: 24,
               sm: 32,
@@ -66,8 +58,14 @@ const CompanyList = () => {
 
   // todo error handle
   return (
-    <div className="company">
-      <Table columns={columns} dataSource={companyList} loading={isLoading} />
+    <div className={classes.company}>
+      <Search />
+      <Table
+        columns={columns}
+        dataSource={companyList}
+        loading={isLoading}
+        scroll={{x: true, y: 600}}
+      />
     </div>
   );
 };

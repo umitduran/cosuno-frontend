@@ -1,5 +1,4 @@
-company {
-  margin-top: 100px;
-  padding: 10rem;
+.company {
+  padding: 0 20% 20% 20%;
   text-align: center;
 }

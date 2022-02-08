@@ -1,8 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import {Col, Row, Layout} from 'antd';
-import PersonList from 'pages/CompanyList';
-import {padding} from 'stylelint-order/rules/shorthandData';
+import CompanyList from 'pages/CompanyList';
 import classes from './App.module.css';
 
 const {Header} = Layout;
@@ -15,7 +14,7 @@ const App = () => (
       </Header>
     </Col>
     <Col sxs={24} sm={24} md={24} lg={24} xl={24} className={classes.col}>
-      <PersonList />
+      <CompanyList />
     </Col>
   </Row>
 );

@@ -8,12 +8,12 @@
 }
 
 .header {
-  background: #001529de;
+  background: #2451b2;
   border-radius: 10px;
-  color: #e48d8dd9;
+  color: #f1f4fa;
   height: 64px;
   line-height: 64px;
-  margin-bottom: 10px;
+  margin-bottom: 3rem;
   padding: 0 10px;
   text-align: center;
 }
