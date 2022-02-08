@@ -1,6 +1,6 @@
-## Person List
+## Company List
 
-Gets Starwars Person List from https://graphql.org/swapi-graphql and saves it to state. ALso saves request loading state.
+Gets Local Company List from https://localhost:3001 and saves it to state. ALso saves request loading state.
 
 ## Selectors
 
@@ -9,36 +9,36 @@ Gets Starwars Person List from https://graphql.org/swapi-graphql and saves it to
 Returns request loading state from the store.
 
 ```javascript
-import {useLoadingState} from 'redux/person';
+import {useLoadingState} from 'redux/Company';
 
 // Needs to be run from inside React component or other hook.
 const {isLoading, hasError, isFulfilled} = useLoadingState();
 ```
 
-### `usePersonList`
+### `useCompanyList`
 
 Returns random number value from the store
 
 ```javascript
-import {usePersonList} from 'redux/person';
+import {useCompanyList} from 'redux/Company';
 
 // Needs to be run from inside React component or other hook.
-const number = usePersonList();
+const number = useCompanyList();
 ```
 
 ## Action creators
 
-### `useGetPersonList`
+### `useGetCompanyList`
 
-Performs Graph query to get person list from https://graphql.org/swapi-graphql. Records person list and loading state data to the store;
+Performs Restful query to get Company list from https://localhost:3001. Records Company list and loading state data to the store;
 
 ```javascript
-import {useGetCompanyListQuery} from 'redux/person';
+import {useGetCompanyListQuery} from 'redux/Company';
 
 // Needs to be run from inside React component or other hook.
 const getNumber = useGetCompanyListQuery();
 useEffect(() => {
-  getPersonList();
+  getCompanyList();
   ...
 }, []);
 ```

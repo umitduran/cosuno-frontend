@@ -3,10 +3,12 @@ import {Provider} from 'react-redux';
 import {persistStateEnhancer} from './enhancers/persistStateEnhancer';
 import {promiseResolverMiddleware} from './middlewares/promiseResolverMiddleware';
 import withProvider from './withProvider';
-import {CompanyListReducer} from "./redux/companyList";
+import {CompanyListReducer} from './redux/companyList';
+import {SectorReducer} from './redux/sector';
 
 const rootReducer = combineReducers({
-  company: CompanyListReducer
+  company: CompanyListReducer,
+  sector: SectorReducer,
 });
 
 /* eslint-disable-next-line no-underscore-dangle */

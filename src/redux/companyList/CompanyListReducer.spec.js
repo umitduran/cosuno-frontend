@@ -1,5 +1,5 @@
-import {GET_PERSON_LIST} from './actionTypes';
-import PersonListReducer from './CompanyListReducer';
+import {GET_COMPANY_LIST} from './actionTypes';
+import CompanyListReducer from './CompanyListReducer';
 
 describe('redux > companyList > RandomReducer', () => {
   it('returns initial state, if non matched action is dispatched', () => {
@@ -13,61 +13,48 @@ describe('redux > companyList > RandomReducer', () => {
       type: 'FOO',
     };
 
-    expect(PersonListReducer(initialState, action)).toBe(initialState);
+    expect(CompanyListReducer(initialState, action)).toBe(initialState);
   });
 
   it.each([
-    [`${GET_PERSON_LIST}_FULFILLED`],
-    [`${GET_PERSON_LIST}_PENDING`],
-    [`${GET_PERSON_LIST}_REJECTED`],
+    [`${GET_COMPANY_LIST}_FULFILLED`],
+    [`${GET_COMPANY_LIST}_PENDING`],
+    [`${GET_COMPANY_LIST}_REJECTED`],
   ])(`updates state according to dispatched action`, actionType => {
     const initialState = {
       personList: [],
     };
 
     const payload =
-      actionType === `${GET_PERSON_LIST}_FULFILLED`
+      actionType === `${GET_COMPANY_LIST}_FULFILLED`
         ? {
             data: {
-              allPeople: {
-                edges: [
-                  {
-                    node: {
-                      id: 'cGVvcGxlOjE=',
-                      name: 'Luke Skywalker',
-                      gender: 'male',
-                      filmConnection: {
-                        edges: [
-                          {
-                            node: {
-                              id: 'ZmlsbXM6MQ==',
-                              title: 'A New Hope',
-                            },
-                          },
-                          {
-                            node: {
-                              id: 'ZmlsbXM6Mg==',
-                              title: 'The Empire Strikes Back',
-                            },
-                          },
-                          {
-                            node: {
-                              id: 'ZmlsbXM6Mw==',
-                              title: 'Return of the Jedi',
-                            },
-                          },
-                          {
-                            node: {
-                              id: 'ZmlsbXM6Ng==',
-                              title: 'Revenge of the Sith',
-                            },
-                          },
-                        ],
-                      },
+              companyList: [
+                {
+                  _id: '61f834aefa65383a3c5c30e7',
+                  logo: 'http://placehold.it/32x32',
+                  name: 'NURPLEX',
+                  specialities: [
+                    {
+                      id: 1,
+                      name: 'Commercial',
                     },
-                  },
-                ],
-              },
+                  ],
+                  city: 'Bayview',
+                },
+                {
+                  _id: '61f834aeea9e019a33d50b15',
+                  logo: 'http://placehold.it/32x32',
+                  name: 'MATRIXITY',
+                  specialities: [
+                    {
+                      id: 1,
+                      name: 'Commercial',
+                    },
+                  ],
+                  city: 'Rose',
+                },
+              ],
             },
           }
         : undefined;
@@ -77,6 +64,6 @@ describe('redux > companyList > RandomReducer', () => {
       payload,
     };
 
-    expect(PersonListReducer(initialState, action)).toMatchSnapshot();
+    expect(CompanyListReducer(initialState, action)).toMatchSnapshot();
   });
 });

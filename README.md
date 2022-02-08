@@ -1,11 +1,9 @@
-# Travel Audience React-Redux-Graphql Challenge
+# Cosuno React-Frontend Challenge
 
 # It could be better
 
 - Requirements could all be over
-- Bonus part could be added
 - The test could all be in working condition.
-- I used Graphql, no need for redux, I could uninstall it.
 - Of course ui/ux and css could be better.
 - Error handle could be added.
 - I could add some places to the function in the code.
@@ -20,7 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ```shell script
-cd travel-audience
+cd cosuno-frontend
 yarn start or npm start
 ```
 

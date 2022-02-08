@@ -9,7 +9,12 @@ export const useGetCompanyList = () => {
     value =>
       dispatch({
         type: GET_COMPANY_LIST,
-        payload: api.get(`/companies?searchParams=${value?.searchParam || ''}`),
+        payload: api.get('/companies', {
+          params: {
+            searchParams: value?.searchParam,
+            specialities: value?.specialities,
+          },
+        }),
       }),
     [dispatch]
   );
